@@ -1,15 +1,19 @@
-function isPrime(num) {
-    if (num <= 1) {
-        return false; 
+function prime(num) {
+    if (num <= 1) return false;
+    if (num === 2) return true;
+    if (num % 2 === 0) return false;
+    
+    for (let i = 3; i * i <= num; i += 2) {
+        if (num % i === 0) return false;
     }
-
-    let i = 2;
-    while (i <= Math.sqrt(num)) {
-        if (num % i === 0) {
-            return false; 
-        }
-        i++;
-    }
-
-    return true; 
+    
+    return true;
 }
+let number = 14;
+if (prime(number)) {
+    console.log(`${number} is a prime number.`);
+} 
+else {
+    console.log(`${number} is not a prime number.`);
+}
+
